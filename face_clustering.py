@@ -6,11 +6,11 @@ import glob
 def Get_face_clustered_labels(faces_folder_path):
 
     # Download the pre trained models, unzip them and save them in the save folder as this file
-    predictor_path = 'shape_predictor_5_face_landmarks.dat' # Download from http://dlib.net/files/dlib_face_recognition_resnet_model_v1.dat.bz2
-    face_rec_model_path = 'dlib_face_recognition_resnet_model_v1.dat' # Download from http://dlib.net/files/shape_predictor_5_face_landmarks.dat.bz2
+    predictor_path = '/content/FaceClust/shape_predictor_5_face_landmarks.dat' # Download from http://dlib.net/files/dlib_face_recognition_resnet_model_v1.dat.bz2
+    face_rec_model_path = '/content/FaceClust/dlib_face_recognition_resnet_model_v1.dat' # Download from http://dlib.net/files/shape_predictor_5_face_landmarks.dat.bz2
 
 
-    detector = dlib.cnn_face_detection_model_v1('mmod_human_face_detector.dat') #a detector to find the faces
+    detector = dlib.cnn_face_detection_model_v1('/content/FaceClust/mmod_human_face_detector.dat') #a detector to find the faces
     sp = dlib.shape_predictor(predictor_path) #shape predictor to find face landmarks
     facerec = dlib.face_recognition_model_v1(face_rec_model_path) #face recognition model
 

@@ -2,6 +2,7 @@ import sys
 import os
 import dlib
 import glob
+from tqdm import tqdm
 
 def Get_face_clustered_labels(faces_folder_path):
 
@@ -21,14 +22,14 @@ def Get_face_clustered_labels(faces_folder_path):
 
     FACE_PATHS  = []
 
-    for f in glob.glob(os.path.join(faces_folder_path, "*.jpg")):
-        print("Processing file: {}".format(f))
+    for f in tqdm(glob.glob(os.path.join(faces_folder_path, "*.jpg"))):
+        #print("Processing file: {}".format(f))
         img = dlib.load_rgb_image(f)
 
         # Ask the detector to find the bounding boxes of each face. The 1 in the second argument indicates that we should upsample the image 1 time. This will make everything bigger and allow us to detect more faces.
         dets = detector(img, 1)
         
-        print("Number of faces detected: {}".format(len(dets)))
+        #print("Number of faces detected: {}".format(len(dets)))
          
         # Now process each face we found.
         
